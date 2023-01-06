@@ -8,27 +8,97 @@ body {
     font-family: Roboto;
     margin: 0;
     padding: 0;
+    z-index: 1;
 
+}
+
+nav, #menu-checkbox {
+    display: none;
+}
+
+#menu-checkbox:checked ~ nav {
+    display: block;
+}
+
+#menu-checkbox:checked ~ .dimmed {
+    display: block;
+}
+
+
+
+nav {
+    position: absolute;
+    z-index: 3;
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 20%;
+    color: #000000;
+    border: solid 2px;
+    top: 0;
+    left: 0;
+}
+
+nav a {
+    display: block;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+}
+
+.mainlink {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-weight: 900;
+}
+
+.sublink {
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+.mainlink:hover, .sublink:hover {
+    text-decoration: underline;
+}
+
+.dimmed {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color:#000000;
+    opacity: 0.5;
 }
 
 .top-line {
     width: 100%;
-    height: 2rem;
+    height: 30px;
     background-color: #9B5CF2;
     color: #FFFFFF;
     text-align: center;
     margin-top: -16px;
+    font-size: 0.8rem;
+
 }
 
 .top-nav {
     width: 66%;
+    display: flex;
     margin: auto;
+    align-items: center;
 }
 
 .navLogo {
     max-height: 100px;
     width: auto;
     padding-top: 2px;
+}
+
+.iconcontainer {
+    margin-right: 0;
+    margin-left: auto;
 }
 
 .search-nav {
@@ -39,6 +109,8 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
 
 .searchbar {
     display: flex;
@@ -55,8 +127,8 @@ body {
     padding-left: 5px;
     margin-left: 10px;
     display: flex;
-    width: 90%;
-    height: 80%;
+    width: 80%;
+    height: 90%;
     outline: none;
     justify-content: center;
 }
@@ -73,12 +145,12 @@ body {
 }
 
 .navicon {
-    height: 40px;
+    height: 35px;
     width: auto;
     color: #000000;
     border: solid 2px;
     border-radius: 50%;
-    padding: 5px;
+    padding: 3px;
     object-fit: scale-down;
 }
 
@@ -90,7 +162,31 @@ main {
 }
 
 .heroImg {
-    max-width: 100%;
+    width: 100%;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.mainbanner {
+    width: 100%;
+}
+
+.bannerhover {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    opacity: 0;
+}
+
+.bannerhover:hover {
+    opacity: 1;
 }
 
 footer {

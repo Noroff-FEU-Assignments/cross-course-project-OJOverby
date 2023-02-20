@@ -1,0 +1,461 @@
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    
+
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- HEADER --- */
+
+nav, #menu-checkbox {
+    display: none;
+}
+
+#menu-checkbox:checked ~ nav {
+    display: block;
+}
+
+#menu-checkbox:checked ~ .dimmed {
+    display: block;
+}
+
+
+
+nav {
+    position: absolute;
+    z-index: 3;
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 20%;
+    color: #000000;
+    border: solid 2px;
+    top: 0;
+    left: 0;
+}
+
+nav a {
+    display: block;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+}
+
+.mainlink {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-weight: 900;
+}
+
+.sublink {
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+.mainlink:hover, .sublink:hover {
+    text-decoration: underline;
+}
+
+.dimmed {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color:#000000;
+    opacity: 0.5;
+}
+
+.top-line {
+    width: 100%;
+    height: 30px;
+    background-color: #9B5CF2;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.top-line p {
+    margin: 0;
+}
+
+.top-nav {
+    width: 66%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
+.navLogo {
+    max-height: 100px;
+    width: auto;
+    padding-top: 2px;
+}
+
+.iconcontainer {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.search-nav {
+    width: 100%;
+    height: 3rem;
+    background-color: #89BF15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-nav .top-line {
+    margin-top: -2px;
+}
+
+
+
+.searchbar {
+    display: flex;
+    background-color: #FFFFFF;
+    width: 40%;
+    height: 70%;
+    border-radius: 60px;
+    align-content: center;
+    justify-content: center;
+}
+
+.searchbar input {
+    border: 0;
+    padding-left: 5px;
+    margin-left: 10px;
+    display: flex;
+    width: 80%;
+    height: 90%;
+    outline: none;
+    justify-content: center;
+}
+
+.searchbar button {
+    background-color: #FFFFFF;
+    border: none;
+    float: right;
+}
+
+.searchicon {
+    height: 25px;
+    width: auto;
+}
+
+.navicon {
+    height: 35px;
+    width: auto;
+    color: #000000;
+    border: solid 2px;
+    border-radius: 50%;
+    padding: 3px;
+    object-fit: scale-down;
+}
+
+main {
+    width: 66%;
+    margin: auto;
+    padding-top: 30px;
+ 
+}
+
+.navLine {
+    width: 100%;
+    border-bottom: solid 2px;
+    border-color: #9B5CF2;
+}
+
+.navLine p {
+    display: inline;
+    padding: 5px;
+}
+
+.navLine h3 {
+    display: inline;
+    padding: 5px;
+}
+.borderbox {
+    width: 100%;
+    border: solid 1px;
+    border-color: #9B5CF2;
+    margin: 50px 0 50px 0;
+}
+
+.coverImg img {
+    width: 300px;
+    height: auto;
+}
+
+/* MAIN */
+
+
+
+.gameInfo {
+    padding: 40px;
+    width: 50%;
+}
+
+.coverImg {
+    padding: 40px;
+}
+
+.CTA {
+
+    color: #FFFFFF;
+    background-color: #9B5CF2;
+    border: solid black 1px;
+    border-radius: 5%;
+    text-align: center;
+}
+
+.CTAinfo {
+    width: 200px;
+    height: 50px;
+}
+
+.CTA:hover {
+    background-color: #F28627;
+}
+
+.heroImg {
+    width: 100%;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+.bannerhover {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    opacity: 0;
+}
+
+.bannerhover:hover {
+    opacity: 1;
+}
+
+.bannercontainer {
+
+   display: grid;
+   grid-template-columns: auto auto;
+   justify-content: stretch;
+   column-gap: 1%;
+}
+
+.bigbanner {
+    width: 100%;
+}
+
+.smallbanner {
+    width: 100%;
+    height: auto;
+}
+
+.bannerright {
+    grid-column: 2/2;
+}
+
+.bannerleft {
+ grid-column: 1/2;
+}
+
+.gamecontainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+
+.gamescard {
+    border: solid 1px black;
+    width: 280px;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.cover-card {
+    width: 200px;
+    height: auto;
+}
+
+.addgamesbutton-card {
+    width: 70%;
+    margin: auto;
+    padding: 5px;
+}
+
+.bannerheading {
+    background-image: url("/images/allgamesbanner.jpg");
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    object-fit: contain;
+}
+
+.readmorebutton-card {
+    background-color: #F5F5F5;
+    width: 70%;
+    border: solid black 1px;
+    border-radius: 5%;
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
+    padding: 5px;
+}
+.readmorebutton-card:hover {
+    background-color: #DBDADA;
+}
+
+
+.sendFormButton{
+    max-width: 150px;
+    margin: auto;
+}
+
+.actiongames .sportsgames, .actiongames .racinggames, .actiongames .RPGgames, .actiongames .familygames {
+    display: none;
+}
+
+.racinggames .sportsgames, .racinggames .RPGgames, .racinggames .actiongames, .racinggames .familygames  {
+    display: none;
+}
+
+.RPGgames .sportsgames, .RPGgames .actiongames, .RPGgames .racinggames, .RPGgames .familygames {
+    display: none;
+}
+
+.sportsgames .RPGgames, .sportsgames .racinggames, .sportsgames .actiongames, .sportsgames .familygames {
+    display: none;
+}
+
+.familygames .RPGgames, .familygames .actiongames, .familygames .racinggames, .familygames .sportsgames {
+    display: none;
+}
+
+.cartWrapper {
+    display: block;
+    padding: 30px;
+}
+
+.cartHeader {
+    display: inline-flex;
+    width: 100%;
+    align-items:center;
+}
+
+.cartWrapper h3 {
+    margin-left: auto;
+    color: red;
+}
+
+.cartCover {
+    max-width: 100px;
+    height: auto;
+}
+
+.cartWrapper table {
+    width: 80%;
+    border-collapse: collapse;
+
+}
+
+td input {
+    max-width: 30px;
+}
+
+.cartWrapper th {
+    text-align: left;
+    border-bottom: solid 2px;}
+
+    .tableline {
+        border-top: 2px solid;
+    }
+
+    .checkoutWrapper {
+        display: grid;
+        grid-template-columns: 1fr auto;
+    }
+    
+/* about.html */
+
+.aboutlogo {
+    width: 350px;
+    height: auto;
+    padding: 35px 0 35px 0;
+}
+
+/* contact.html */
+
+.contactform {
+    display: flex;
+    flex-direction: column;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #89BF15;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+.footerwrap {
+    display: flex;
+    justify-content: center;
+}
+
+.footericon {
+    height: 40px;
+    width: auto;
+    display: block;
+    padding-top: 10px;
+}
+
+.footermain {
+    width: 30%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 3%;
+}
+
+.rightfooter a {
+    color: #FFFFFF;
+}
+
+@media (max-width: 900px) {
+    
+    .contacticon {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    main {
+        width: 100%;
+    }
+}

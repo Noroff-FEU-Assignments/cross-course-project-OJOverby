@@ -15,6 +15,7 @@ body {
 
 a {
     text-decoration: none;
+    color: #000000;
 }
 
 /* --- HEADER --- */
@@ -30,6 +31,7 @@ nav, #menu-checkbox {
 #menu-checkbox:checked ~ .dimmed {
     display: block;
 }
+
 
 
 
@@ -97,6 +99,7 @@ nav a {
     display: flex;
     margin: auto;
     align-items: center;
+    padding: 10px;
 }
 
 .navLogo {
@@ -288,6 +291,8 @@ main {
 .gamecontainer {
     display: grid;
     grid-template-columns: auto auto auto;
+      justify-content: space-between;
+  align-content: space-between;
 }
 
 
@@ -401,6 +406,10 @@ td input {
         display: grid;
         grid-template-columns: 1fr auto;
     }
+
+    .infoPageWrapper {
+        display: flex;
+    }
     
 /* about.html */
 
@@ -461,5 +470,10 @@ footer {
 
     main {
         width: 100%;
+    }
+
+    .gamecontainer {
+        display: grid;
+        grid-template-columns: auto auto;
     }
 }

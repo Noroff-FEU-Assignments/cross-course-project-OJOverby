@@ -241,6 +241,7 @@ main {
     width: 100%;
     top: 0;
     left: 0;
+    margin-top: 10px;
 }
 
 
@@ -251,6 +252,8 @@ main {
     left: 0;
     object-fit: contain;
     opacity: 0;
+    margin-top: 10px;
+
 }
 
 .bannerhover:hover {
@@ -420,6 +423,7 @@ footer {
     background-color: #89BF15;
     width: 100%;
     color: #FFFFFF;
+    margin-top: 50px;
 }
 
 .footerwrap {

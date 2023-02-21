@@ -293,19 +293,20 @@ main {
     grid-template-columns: auto auto auto;
       justify-content: space-between;
   align-content: space-between;
+  
 }
 
 
 .gamescard {
     border: solid 1px black;
-    width: 280px;
+    max-width: 200px;
     text-align: center;
-    margin-top: 30px;
+    margin: 30px 5px 0px 5px;
     padding: 20px;
 }
 
 .cover-card {
-    width: 200px;
+    max-width: 200px;
     height: auto;
 }
 
@@ -337,11 +338,6 @@ main {
     background-color: #DBDADA;
 }
 
-
-.sendFormButton{
-    max-width: 150px;
-    margin: auto;
-}
 
 .actiongames .sportsgames, .actiongames .racinggames, .actiongames .RPGgames, .actiongames .familygames {
     display: none;
@@ -396,20 +392,24 @@ td input {
 
 .cartWrapper th {
     text-align: left;
-    border-bottom: solid 2px;}
+    border-bottom: solid 2px;
+}
 
-    .tableline {
+.tableline {
         border-top: 2px solid;
     }
 
-    .checkoutWrapper {
+.checkoutWrapper {
         display: grid;
         grid-template-columns: 1fr auto;
+        column-gap: 40px;
     }
 
-    .infoPageWrapper {
+.infoPageWrapper {
         display: flex;
     }
+
+
     
 /* about.html */
 
@@ -421,9 +421,29 @@ td input {
 
 /* contact.html */
 
+.smallermain {
+    width: 40%;
+    justify-items: center;
+}
+
+.sendFormButton{
+    max-width: 150px;
+    margin: 30px auto 30px
+}
+
 .contactform {
     display: flex;
     flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+.contactform input {
+    width: 60%;
+}
+
+.contactform label {
+    margin-top: 30px;
 }
 
 /* FOOTER */

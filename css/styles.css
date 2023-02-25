@@ -9,7 +9,6 @@ body {
     margin: 0;
     padding: 0;
     z-index: 1;
-    
 
 }
 
@@ -317,11 +316,15 @@ main {
 }
 
 .bannerheading {
-    background-image: url("/images/allgamesbanner.jpg");
-    width: 100%;
+    max-width: 100%;
     height: auto;
     margin-top: 30px;
-    object-fit: contain;
+}
+
+.actiongames .bannerheading {
+    background-image: url("/images/actionbanner.jpg");
+    background-size: 100%;
+    background-position: center;
 }
 
 .readmorebutton-card {
@@ -435,6 +438,12 @@ td input {
 
     .continueShopping h3 {
         color: #000000;
+    }
+
+    .use-more-space {
+        margin-top: 20vh;;
+        height: 50vh;
+        text-align: center;
     }
     
 /* about.html */

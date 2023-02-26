@@ -17,6 +17,10 @@ a {
     color: #000000;
 }
 
+.hidden {
+    display: none;
+}
+
 /* --- HEADER --- */
 
 nav, #menu-checkbox {
@@ -210,10 +214,16 @@ main {
 .gameInfo {
     padding: 40px;
     width: 50%;
+    text-align: left;
 }
 
 .coverImg {
     padding: 40px;
+}
+
+.coverImg img {
+    max-width: 200px;
+    height: auto;
 }
 
 .CTA {
@@ -315,6 +325,8 @@ main {
     padding: 5px;
 }
 
+
+
 .bannerheading {
     max-width: 100%;
     height: auto;
@@ -406,6 +418,11 @@ td input {
         display: grid;
         grid-template-columns: 1fr auto;
         column-gap: 40px;
+    }
+
+    .side-info {
+        min-height: auto;
+        padding: 5px;
     }
 
 .infoPageWrapper {
@@ -524,11 +541,73 @@ footer {
     }
 
     main {
-        width: 100%;
+        width: 90%;
     }
 
     .gamecontainer {
         display: grid;
         grid-template-columns: auto auto;
     }
+
+    footer p {
+        font-size: 10px;
+    }
+
+    .gamescard {
+        border: solid 1px black;
+        max-width: 150px;
+        text-align: center;
+        margin: 20px 20px 0px 20px;
+        padding: 20px;
+    }
+    
+    .cover-card {
+        max-width: 150px;
+        height: auto;
+
+    }
+
+    .coverImg {
+        max-width: 100px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .coverImg img {
+        max-width: 80px;
+        height: auto;
+    }
+    
+    .infoPageWrapper p, h3 {
+        font-size: 10px;
+    }
+
+    .gameInfo {
+        padding: 0px
+    }
+
+    .saleInfo .CTAinfo {
+        width: 100px;
+        height: 30px;
+    }
+
+    .borderbox {
+        margin: 50px 5px 50px 5px;
+    }
+    
+    .side-info h2 {
+        font-size: 10px;
+        margin-right: 5px;
+    }
+
+    .cartCover {
+        max-width: 50px;
+        height: auto;
+    }
+
+    .checkoutWrapper {
+        column-gap: 10px;
+    }
+
+    
 }

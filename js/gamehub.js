@@ -16,5 +16,7 @@ dimmed.style.height = screenheight+('px');
 
 console.log(menu)
 
+console.log(document.body.height);
+
 menu.style.height = screenheight+('px');
 

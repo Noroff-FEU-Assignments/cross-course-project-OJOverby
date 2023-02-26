@@ -137,12 +137,13 @@ nav a {
     width: 40%;
     height: 70%;
     border-radius: 60px;
-    align-content: center;
+    align-items: center;
     justify-content: center;
 }
 
 .searchbar input {
     border: 0;
+    padding: 0;
     padding-left: 5px;
     margin-left: 10px;
     display: flex;
@@ -156,6 +157,7 @@ nav a {
     background-color: #FFFFFF;
     border: none;
     float: right;
+    margin-right: 10px;
 }
 
 .searchicon {
@@ -376,13 +378,14 @@ main {
 
 .cartWrapper {
     display: block;
-    padding: 30px;
+   
 }
 
 .cartHeader {
     display: inline-flex;
-    width: 100%;
+    width: 80%;
     align-items:center;
+    margin: 20px;
 }
 
 .cartWrapper h3 {
@@ -398,6 +401,7 @@ main {
 .cartWrapper table {
     width: 80%;
     border-collapse: collapse;
+    margin: 20px
 
 }
 
@@ -607,6 +611,14 @@ footer {
 
     .checkoutWrapper {
         column-gap: 10px;
+    }
+
+    .cartHeader {
+        width: 70%;
+    }
+
+    .cartWrapper {
+        max-width: 100%;
     }
 
     

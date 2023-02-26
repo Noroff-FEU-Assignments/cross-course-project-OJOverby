@@ -378,6 +378,7 @@ main {
 
 .cartWrapper {
     display: block;
+    padding-bottom: 20px;
    
 }
 
@@ -466,6 +467,11 @@ td input {
         height: 50vh;
         text-align: center;
     }
+
+    .confirmation-wrapper {
+        text-align: center;
+
+    }
     
 /* about.html */
 
@@ -492,6 +498,7 @@ td input {
     flex-direction: column;
     width: 80%;
     margin: auto;
+    padding-bottom: 20px;
 }
 
 .contactform input {
@@ -499,6 +506,10 @@ td input {
 }
 
 .contactform label {
+    margin-top: 30px;
+}
+
+.contactform .CTA {
     margin-top: 30px;
 }
 

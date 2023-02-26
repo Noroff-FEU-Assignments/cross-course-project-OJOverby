@@ -559,14 +559,14 @@ footer {
 
     .gamescard {
         border: solid 1px black;
-        max-width: 150px;
+        max-width: 100px;
         text-align: center;
         margin: 20px 20px 0px 20px;
         padding: 20px;
     }
     
     .cover-card {
-        max-width: 150px;
+        max-width: 100px;
         height: auto;
 
     }

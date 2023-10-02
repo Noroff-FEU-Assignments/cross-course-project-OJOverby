@@ -1,7 +1,5 @@
 document.write(`
     
-<div class="gamecontainer">
-
 <section class="gamescard RPGgames">
   <img src="images/AssassinCover.jpg" alt="Assassin game cover" class="cover-card">
   <h2>ASSASSIN</h2>
@@ -80,6 +78,6 @@ document.write(`
   <a href="/games/racing.html"><div class="readmorebutton-card">READ MORE</div></a>
 </section>
 
-</div>
+
 
 `);

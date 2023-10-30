@@ -1,13 +1,20 @@
 const gameDetails = document.querySelector(".infoPageWrapper");
+const gameGenre = document.querySelector(".genres");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 const url = "https://api.noroff.dev/api/v1/gamehub/" + id;
+let details;
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 async function fetchGame(){
+  try {
     const response = await fetch(url);
     const details = await response.json();
     console.log(details);
+
+    gameGenre.innerHTML = details.genre.toUpperCase();
+    gameGenre.href = "/genre.html?genre="+details.genre;
 
     gameDetails.innerHTML = `
     <section class="coverImg"><img src="${details.image}" alt="${details.title} Cover image"></section>
@@ -24,8 +31,27 @@ async function fetchGame(){
     </section>
   <section class="saleInfo">
     <h2>${details.price}</h2>
-    <a href="../cart.html"><div class="CTA CTAinfo"><h3>ADD TO CART</h3></div></a>
-  </section>`
+    <div class="CTA CTAinfo cartButton" data-id="${details.id}"><h3>ADD TO CART</h3></div>
+  </section>`;
+  const cartButton = document.querySelector(".cartButton")
+  console.log(cartButton);
+  cartButton.addEventListener("click", function() {
+    const gameId = cartButton.getAttribute("data-id");
+    addToCart(gameId);
+    console.log("added to game:",gameId)
+  })
+} catch (error) {
+  console.log("Shits not working...", error);
+  gameDetails.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
 }
+  }
+ 
 
 fetchGame();
+
+function addToCart(gameId){
+  cart.push({id: gameId, quantity:1});
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.assign("cart.html");
+ }
+

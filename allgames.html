@@ -16,7 +16,7 @@
       <div class="iconcontainer">
         <a href="contact.html"><img src="icons/contact.svg" alt="Contact icon" class="navicon contacticon"></a>
         <a href=""><img src="icons/profile.svg" alt="Profile icon" class="navicon"></a>
-        <a href="cart.html"><img src="icons/shopping_cart.svg" alt="Shopping cart icon" class="navicon"></a>
+        <a href="cart.html" class="relative"><img src="icons/shopping_cart.svg" alt="Shopping cart icon" class="navicon"><div class="cart-counter hidden"></div></a>
       </div>
     </section>
     <section class="search-nav">
@@ -29,14 +29,10 @@
         <section class="search-nav"><label for="menu-checkbox"><img src="icons/cross.svg" alt="Close menu"></label></section>
         <a href="index.html" class="mainlink">Home</a>
         <a href="allgames.html" class="mainlink">Games</a>
-        <a href="actiongames.html" class="sublink">- Action</a>
-        <a href="RPGgames.html" class="sublink">- Roleplaying</a>
-        <a href="racinggames.html" class="sublink">- Racing</a>
-        <a href="sportsgames.html" class="sublink">- Sports</a>
-        <a href="familygames.html" class="sublink">- Family</a>
-        <a href="preownedgames.html" class="mainlink">Preowned</a>
-        <a href="preownedgames.html" class="sublink">- Buy Games</a>
-        <a href="preownedgames.html" class="sublink">- Sell Games</a>
+        <a href="genre.html?genre=Action" class="sublink">- Action</a>
+        <a href="genre.html?genre=Adventure" class="sublink">- Adventure</a>
+        <a href="genre.html?genre=Horror" class="sublink">- Horror</a>
+        <a href="genre.html?genre=Sports" class="sublink">- Sports</a>
         <a href="contact.html" class="mainlink">Contact us</a>
         <a href="about.html" class="mainlink">About us</a>
       </nav>
@@ -54,6 +50,9 @@
     <img src="images/allgamesbanner.jpg" class="bannerheading">
     <h1 class="hidden">All Games</h1>
     <div class="gamecontainer">
+      <div></div>
+      <div class="loading"></div>
+      <div></div>
     <script src="js/games.js"></script>
   </div>
 
@@ -82,5 +81,6 @@
       <section class="top-line"><p>Copyright GameHub © 2022 </p></section>
     </footer>
     <script src="/js/gamehub.js"></script>
+    <script src="/js/cartHandler.js"></script>
 </body>
 </html>

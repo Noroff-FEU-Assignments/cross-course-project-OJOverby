@@ -1,17 +1,31 @@
 const url = "https://api.noroff.dev/api/v1/gamehub";
 const gameContainer = document.querySelector(".gamecontainer");
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+const genre = params.get("genre");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const header = document.querySelector(".bannerheading");
 
+if (genre === "Sports") {
+    header.src ="/images/SportsBigBanner.jpg";
+} else if (genre === "Action") {
+    header.src ="/images/ActionBigBanner.jpg";
+} else if (genre === "Horror") {
+    header.src ="/images/horrorbigbanner.jpg";
+} else if (genre === "Adventure") {
+    header.src ="/images/adventurebigbanner.jpg";
+}
 
-async function getAllGames() {
+async function getGenreGames() {
 
     try {
         const response = await fetch(url);
         const games = await response.json();
         console.log(games);
         gameContainer.innerHTML = "";
+        filteredGames = games.filter(game => game.genre === genre);
     
-        games.forEach(function(game){
+        filteredGames.forEach(function(game){
             gameContainer.innerHTML += `
             <section class="gamescard">
             <img src="${game.image}" alt="${game.title} game cover" class="cover-card">
@@ -21,16 +35,14 @@ async function getAllGames() {
             <a href="/details.html?id=${game.id}"><div class="readmorebutton-card">READ MORE</div></a>
             </section>
             `;
-
         })
     } catch (error) {
         console.log("Not working", error);
-        gameContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
     }
     
 }
 
-getAllGames();
+getGenreGames();
 
 function addToCart(gameId){
     console.log("addToCart called with gameId:", gameId);

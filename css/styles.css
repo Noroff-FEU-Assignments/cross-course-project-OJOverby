@@ -235,6 +235,7 @@ main {
     border: solid black 1px;
     border-radius: 5%;
     text-align: center;
+    cursor: pointer;
 }
 
 .CTAinfo {
@@ -302,8 +303,8 @@ main {
 .gamecontainer {
     display: grid;
     grid-template-columns: auto auto auto;
-      justify-content: space-between;
-  align-content: space-between;
+    justify-content: space-between;
+    align-content: space-between;
   
 }
 
@@ -356,25 +357,6 @@ main {
 }
 
 
-.actiongames .sportsgames, .actiongames .racinggames, .actiongames .RPGgames, .actiongames .familygames {
-    display: none;
-}
-
-.racinggames .sportsgames, .racinggames .RPGgames, .racinggames .actiongames, .racinggames .familygames  {
-    display: none;
-}
-
-.RPGgames .sportsgames, .RPGgames .actiongames, .RPGgames .racinggames, .RPGgames .familygames {
-    display: none;
-}
-
-.sportsgames .RPGgames, .sportsgames .racinggames, .sportsgames .actiongames, .sportsgames .familygames {
-    display: none;
-}
-
-.familygames .RPGgames, .familygames .actiongames, .familygames .racinggames, .familygames .sportsgames {
-    display: none;
-}
 
 .cartWrapper {
     display: block;
@@ -472,6 +454,62 @@ td input {
         text-align: center;
 
     }
+
+    .loading-wrapper {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .loading {
+        margin: 50px auto 50px auto;
+        border: 20px solid #EAF0F6;
+        border-radius: 50%;
+        border-top: 20px solid #9B5CF2;
+        width: 200px;
+        height: 200px;
+        animation: spinning 4s linear infinite;
+        
+    }
+
+    @keyframes spinning {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .minus-button, .plus-button {
+        background-color: lightgrey;
+        width: 20px;
+        height: 20px;
+        padding: 3px;
+        margin: 0 6px;
+        border: solid 2px black;
+        border-radius: 50%;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .inline {
+        display: flex;
+        align-items: center;
+        font-weight: bolder;
+      }
+
+      .relative {
+        position: relative;
+      }
+
+      .cart-counter {
+        position: absolute;
+        background-color: #F28627;
+        right: 0;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        border: solid 2px black;
+        border-radius: 50%;
+        text-align: center;
+        font-weight: bolder;
+      }
     
 /* about.html */
 

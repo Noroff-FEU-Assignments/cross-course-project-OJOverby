@@ -1,8 +1,11 @@
 const checkoutContainer = document.querySelector(".checkout-container");
+const checkoutPrice = document.querySelector(".total-price");
 const url = "https://api.noroff.dev/api/v1/gamehub/";
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let totalPrice = 0;
 checkoutContainer.innerHTML = "";
+
+
 async function getCartItem(gameId){
     try {
         const url = "https://api.noroff.dev/api/v1/gamehub/"+gameId;
@@ -17,21 +20,21 @@ async function getCartItem(gameId){
       checkoutContainer.innerHTML += `
         
       <tr>
-                <td><img src="${cartItem.image}" alt="Racing game cover" class="cartCover"></td>
-                <td><h2><b>${cartItem.title}</b></h2>
-                    <h2>Digital CD key</h2>
-                    <h2>${cartItem.price}</h2>
+                <td><img src="${cartItem.image}" alt="${cartItem.title} game cover" class="cartCover"></td>
+                <td><h3><b>${cartItem.title}</b></h2>
+                    <p>Digital CD key</p>
+                    <p>${cartItem.price}</p>
                 </td>
             </tr>
         
       `;
      
-     // totalPrice += cartItem.price*cartQuantity.quantity;
-      // price.innerHTML = `$`+ totalPrice.toFixed(2);
+     totalPrice += cartItem.price*cartQuantity.quantity;
+     checkoutPrice.innerHTML = `$`+ totalPrice.toFixed(2);
     
   
   } catch (error) {
-    console.log("Shits not working...", error);
+    checkoutContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
   }
     }
 

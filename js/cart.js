@@ -5,8 +5,6 @@ const url = "https://api.noroff.dev/api/v1/gamehub/";
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let totalPrice = 0;
 
-
-
 emptyButton.addEventListener("click", function() {
   const emptyCart = confirm("Do you really want to empty your cart?");
   if(emptyCart){
@@ -19,16 +17,12 @@ async function getCartItem(gameId){
         const url = "https://api.noroff.dev/api/v1/gamehub/"+gameId;
       const response = await fetch(url);
       const cartItem = await response.json();
-      console.log(cartItem);
-      console.log(cartItem.title);
 
       cartQuantity = cart.find(item => item.id === cartItem.id);
-      console.log(cartQuantity.quantity);
-      
       cartContainer.innerHTML += `
         
       <tr>
-          <td><img src="${cartItem.image}" alt="Racing game cover" class="cartCover"></td>
+          <td><img src="${cartItem.image}" alt="${cartItem.image} game cover" class="cartCover"></td>
           <td><b>${cartItem.title}</b><p>Digital CD key</p></td>
           <td><div class="inline"><div class="minus-button" onclick="decreaseItems('${cartItem.id}')">-</div><div id="quantity-id-${cartItem.id}" class="quantity-number">${cartQuantity.quantity}</div><div class="plus-button" onclick="increaseItems('${cartItem.id}')">+</div></div></td>
           <td><div id="item-price-${cartItem.id}" class="item-price">$${(cartItem.price*cartQuantity.quantity).toFixed(2)}</div></td>
@@ -41,7 +35,7 @@ async function getCartItem(gameId){
     
   
   } catch (error) {
-    console.log("Shits not working...", error);
+    cartContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
   }
     }
 
@@ -52,7 +46,6 @@ async function getCartItem(gameId){
     } else {
       idArray.forEach(function(gameId){
         getCartItem(gameId);
- 
     })
     }
   }
@@ -66,24 +59,19 @@ async function getCartItem(gameId){
           item.quantity++;
           const quantityNum = document.querySelector("#quantity-id-"+item.id);
           const itemPrice = document.querySelector("#item-price-"+item.id);
-          console.log(quantityNum);
           quantityNum.innerHTML = item.quantity;
           getInfo(id).then (priceInfo => {
             let priceForItems = priceInfo*item.quantity;
             itemPrice.innerHTML = "$"+priceForItems.toFixed(2);
           
           });
- 
         }
-        
         localStorage.setItem("cart", JSON.stringify(cart));
-     
-    
       })
       cart = JSON.parse(localStorage.getItem("cart")) || [];
       updateTotalPrice();
+      updateCartCounter();
     }
-
 
     function decreaseItems (id){
       cart = cart.map((item) => {
@@ -91,7 +79,6 @@ async function getCartItem(gameId){
           item.quantity--;
           const quantityNum = document.querySelector("#quantity-id-"+item.id);
           const itemPrice = document.querySelector("#item-price-"+item.id);
-          console.log(quantityNum);
           quantityNum.innerHTML = item.quantity;
           getInfo(id).then (priceInfo => {
             let priceForItems = priceInfo*item.quantity;
@@ -103,16 +90,18 @@ async function getCartItem(gameId){
       })
       cart = JSON.parse(localStorage.getItem("cart")) || [];
       updateTotalPrice();
+      updateCartCounter();
     }
 
     async function getInfo(id){
       try {
         const response = await fetch(url+id);
         const gameInfo = await response.json();
-        console.log(gameInfo.price);
         return gameInfo.price;
       }
-      catch {}
+      catch (error) {
+        cartContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
+      }
     }
   
     function updateTotalPrice() {

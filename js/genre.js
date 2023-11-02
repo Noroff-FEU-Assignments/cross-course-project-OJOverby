@@ -21,7 +21,6 @@ async function getGenreGames() {
     try {
         const response = await fetch(url);
         const games = await response.json();
-        console.log(games);
         gameContainer.innerHTML = "";
         filteredGames = games.filter(game => game.genre === genre);
     
@@ -37,7 +36,7 @@ async function getGenreGames() {
             `;
         })
     } catch (error) {
-        console.log("Not working", error);
+        gameContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
     }
     
 }
@@ -45,10 +44,21 @@ async function getGenreGames() {
 getGenreGames();
 
 function addToCart(gameId){
-    console.log("addToCart called with gameId:", gameId);
-    cart.push({id: gameId, quantity:1});
+
+    if (cart.some((item) => item.id === gameId)){
+       console.log(gameId.quantity);
+       cart = cart.map((item) => {
+   
+        if (item.id === gameId){
+          item.quantity++;
+          localStorage.setItem("cart", JSON.stringify(cart));}
+        })
+        
+    } else {
+        cart.push({id: gameId, quantity:1});
       localStorage.setItem("cart", JSON.stringify(cart));
-      console.log("Cart updated:", cart);
-      window.location.assign("cart.html");
+      
+    }
+    window.location.assign("cart.html");
    }
   

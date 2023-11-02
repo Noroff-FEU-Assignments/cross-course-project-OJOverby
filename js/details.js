@@ -11,7 +11,6 @@ async function fetchGame(){
   try {
     const response = await fetch(url);
     const details = await response.json();
-    console.log(details);
 
     gameGenre.innerHTML = details.genre.toUpperCase();
     gameGenre.href = "/genre.html?genre="+details.genre;
@@ -41,17 +40,29 @@ async function fetchGame(){
     console.log("added to game:",gameId)
   })
 } catch (error) {
-  console.log("Shits not working...", error);
   gameDetails.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
 }
   }
- 
-
+  
 fetchGame();
 
 function addToCart(gameId){
-  cart.push({id: gameId, quantity:1});
+
+  if (cart.some((item) => item.id === gameId)){
+     console.log(gameId.quantity);
+     cart = cart.map((item) => {
+ 
+      if (item.id === gameId){
+        item.quantity++;
+        localStorage.setItem("cart", JSON.stringify(cart));}
+      })
+      
+  } else {
+      cart.push({id: gameId, quantity:1});
     localStorage.setItem("cart", JSON.stringify(cart));
-    window.location.assign("cart.html");
+    
+  }
+  window.location.assign("cart.html");
  }
+
 

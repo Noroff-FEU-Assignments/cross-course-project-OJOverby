@@ -1,4 +1,4 @@
-/// Code from original cross-course project
+/// Code from original HTML/CSS project
 
 const dimmed = document.querySelector('.dimmed')
 const checkbox = document.querySelector('#menu-checkbox');

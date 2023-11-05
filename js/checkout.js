@@ -23,7 +23,8 @@ async function getCartItem(gameId){
                 <td><img src="${cartItem.image}" alt="${cartItem.title} game cover" class="cartCover"></td>
                 <td><h3><b>${cartItem.title}</b></h2>
                     <p>Digital CD key</p>
-                    <p>${cartItem.price}</p>
+                    <p>Quantity: ${cartQuantity.quantity}</p>
+                    <p>Price: ${cartItem.price*cartQuantity.quantity}</p>
                 </td>
             </tr>
         

@@ -3,7 +3,7 @@ const checkoutPrice = document.querySelector(".total-price");
 const url = "https://api.noroff.dev/api/v1/gamehub/";
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let totalPrice = 0;
-checkoutContainer.innerHTML = "";
+
 
 
 async function getCartItem(gameId){
@@ -11,11 +11,7 @@ async function getCartItem(gameId){
         const url = "https://api.noroff.dev/api/v1/gamehub/"+gameId;
       const response = await fetch(url);
       const cartItem = await response.json();
-      console.log(cartItem);
-      console.log(cartItem.title);
-
       cartQuantity = cart.find(item => item.id === cartItem.id);
-      console.log(cartQuantity.quantity);
       
       checkoutContainer.innerHTML += `
         
@@ -40,7 +36,7 @@ async function getCartItem(gameId){
     }
 
     function runCart(){
-        
+      checkoutContainer.innerHTML = "";
         const idArray = cart.map(item => item.id);
         if(idArray.length===0){
           cartContainer.innerHTML = `<p>There are no items in your cart<p>`

@@ -1,5 +1,6 @@
 const cartContainer = document.querySelector(".cart-container");
 const emptyButton = document.querySelector(".empty-button");
+const loadingWrap = document.querySelector(".loading-wrapper");
 const price = document.querySelector(".price");
 const url = "https://api.noroff.dev/api/v1/gamehub/";
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -41,6 +42,7 @@ async function getCartItem(gameId){
 
     function runCart(){
     const idArray = cart.map(item => item.id);
+    loadingWrap.innerHTML = "";
     if(idArray.length===0){
       cartContainer.innerHTML = `<p>There are no items in your cart<p>`
     } else {

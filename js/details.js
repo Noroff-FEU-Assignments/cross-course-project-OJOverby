@@ -33,11 +33,9 @@ async function fetchGame(){
     <div class="CTA CTAinfo cartButton" data-id="${details.id}"><h3>ADD TO CART</h3></div>
   </section>`;
   const cartButton = document.querySelector(".cartButton")
-  console.log(cartButton);
   cartButton.addEventListener("click", function() {
     const gameId = cartButton.getAttribute("data-id");
     addToCart(gameId);
-    console.log("added to game:",gameId)
   })
 } catch (error) {
   gameDetails.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
@@ -49,9 +47,7 @@ fetchGame();
 function addToCart(gameId){
 
   if (cart.some((item) => item.id === gameId)){
-     console.log(gameId.quantity);
      cart = cart.map((item) => {
- 
       if (item.id === gameId){
         item.quantity++;
         localStorage.setItem("cart", JSON.stringify(cart));}

@@ -8,7 +8,6 @@ async function getAllGames() {
     try {
         const response = await fetch(url);
         const games = await response.json();
-        console.log(games);
         gameContainer.innerHTML = "";
     
         games.forEach(function(game){

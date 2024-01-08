@@ -368,6 +368,47 @@ div.mobile-menu {
     text-align: center;
 }
 
+.frontpage {
+    display: flex;
+    justify-content: center;
+}
+
+.frontpage ul {
+    list-style:disc;
+    padding-left: 10px;
+}
+
+.frontpage li {
+    padding: 0;
+}
+
+.front-info {
+    width: 30%;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.news {
+    height: fit-content;
+    padding-bottom: 30px;
+}
+
+.news-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+.news-container .gamescard {
+    max-width: 150px;
+}
+
+.news-container .cover-card {
+    max-width: 150px;
+}
+
 .gameInfo {
     padding: 40px;
     width: 50%;
@@ -865,6 +906,19 @@ footer {
         text-align: center;
         margin: 20px 10px 0px 10px;
         padding: 20px;
+    }
+
+    .frontpage {
+        flex-direction: column;
+    }
+
+    .news {
+        width: auto;
+    }
+
+    .frontpage .front-info {
+        width: auto;
+        margin: 0;
     }
 
     .gamescard h2 {

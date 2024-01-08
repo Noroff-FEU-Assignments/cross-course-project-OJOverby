@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GameHub - Home</title>
-  <meta name="description" content="GameHub is your source for buying digital games and buying and selling your used games">
+  <title>GameHub - Racing</title>
+  <meta name="description" content="GameHub is your source for buying digital games and buying and selling your used games. Drive fast with the one the best racing games on the market.">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
   <header>
@@ -56,54 +56,38 @@
     </section>
   </header>
   <main>
-    <h1 class="hidden">Welcome to GameHub</h1>
-    <img src="images/heroimage.jpg" alt="GameHub logo cover art" class="heroImg">
-
-    <a href="allgames.html"><div class="banner">
-      <img src="/images/allgamesbanner.jpg" alt="All Games Banner image" class="banner bigbanner">
-      <img src="images/allgamesoverlay.jpg" alt="All Games Banner Hover image" class="bannerhover">
-    </div></a>
-    <div class="bannercontainer">
-    <a href="genre.html?genre=Action"><div class="banner">
-      <img src="/images/actionbanner.jpg" alt="Action Games Banner image" class="banner smallbanner">
-      <img src="images/actionOverlay.jpg" alt="Action Games Banner Hover image" class="bannerhover smallbanner">
-    </div></a>
-    <a href="genre.html?genre=Adventure"><div class="banner">
-      <img src="/images/adventure.jpg" alt="Adventure Games Banner image" class="banner smallbanner">
-      <img src="images/adventureOverlay.jpg" alt="Adventure Games Banner Hover image" class="bannerhover smallbanner">
-    </div></a>
-    <a href="genre.html?genre=Horror"><div class="banner">
-      <img src="/images/horror.jpg" alt="Horror Games Banner image" class="banner smallbanner">
-      <img src="images/horrorOverlay.jpg" alt="Horror Games Banner Hover image" class="bannerhover smallbanner">
-    </div></a>
-    <a href="genre.html?genre=Sports"><div class="banner">
-      <img src="/images/sportsbanner.jpg" alt="Sports Games Banner image" class="banner smallbanner">
-      <img src="images/sportsOverlay.jpg" alt="Sports Games Banner Hover image" class="bannerhover smallbanner">
-    </div></a>
-  </div>
+    <section class="navLine">
+        <a href="/index.html">HOME</a><p>></p><a href="/allgames.html">GAMES</a><p>></p><a href="../racinggames.html" class="genres">-</a>
+    </section>
+    <section class="borderbox infoPageWrapper">
+      <div class="loading-wrapper">
+        <div class="loading"></div>
+      </div>
+    </section>
   </main>
   <footer>
     <section class="footerwrap">
-    <div class="leftfooter">
-      <a href="#"><img src="icons/twitter.svg" alt="twitter logo" class="footericon"></a>
-      <a href="#"><img src="icons/instagram.svg" alt="instagram logo" class="footericon"></a>
-      <a href="#"><img src="icons/facebook.svg" alt="facebook logo" class="footericon"></a>
-    </div>
-    <div class="footermain">
-      <h2>GameHub</h2>
-      <p>Your universe in games</p>
-      <p>GameHub is a online shop specialiced in selling digital versions of popular games. Our site allso offers you the possibilty to buy and sell used games. </p>
-    </div>
-    <div class="rightfooter">
-     <a href="index.html"><h3>Home</h3></a>
-     <a href="contact.html"><h3>Contact us</h3></a>
-     <a href="about.html"><h3>About us</h3></a>
-    </div>
-  </section>
-    <section class="top-line"><p>Copyright GameHub © 2022 </p></section>
+      <div class="leftfooter">
+        <a href="#"><img src="../icons/twitter.svg" alt="twitter logo" class="footericon"></a>
+        <a href="#"><img src="../icons/instagram.svg" alt="instagram logo" class="footericon"></a>
+        <a href="#"><img src="../icons/facebook.svg" alt="facebook logo" class="footericon"></a>
+      </div>
+      <div class="footermain">
+        <h2>GameHub</h2>
+        <p>Your universe in games</p>
+        <p>GameHub is a online shop specialiced in selling digital versions of popular games. Our site allso offers you the possibilty to buy and sell used games. </p>
+      </div>
+      <div class="rightfooter">
+       <a href="../index.html"><h3>Home</h3></a>
+       <a href="../contact.html"><h3>Contact us</h3></a>
+       <a href="../about.html"><h3>About us</h3></a>
+      </div>
+    </section>
+      <section class="top-line"><p>Copyright GameHub © 2022 </p></section>
   </footer>
-  <script src="/js/gamehub.js"></script>
-  <script src="/js/cartHandler.js"></script>
-  <script src="/js/search.js"></script>
+ 
+  <script src="../js/details.js" type="module"></script>
+  <script src="../js/gamehub.js"></script>
+  <script src="js/cartHandler.js"></script>
 </body>
 </html>

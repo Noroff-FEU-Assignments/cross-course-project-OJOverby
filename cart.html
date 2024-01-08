@@ -14,13 +14,7 @@
     <section class="top-line"><p>Your source for digital games online</p></section>
     <section class="top-nav"><a href="index.html"><img src="/images/GameHub.jpg" alt="GameHub logo" class="navLogo"></a>
       <div class="iconcontainer">
-<<<<<<< Updated upstream
-        <a href="contact.html"><img src="icons/contact.svg" alt="Contact icon" class="navicon contacticon"></a>
-        <a href=""><img src="icons/profile.svg" alt="Profile icon" class="navicon"></a>
-        <a href="cart.html"><img src="icons/shopping_cart.svg" alt="Shopping cart icon" class="navicon"></a>
-=======
         <a href="cart.html" class="relative"><img src="icons/shopping_cart.svg" alt="Shopping cart icon" class="navicon"><div class="cart-counter hidden"></div></a>
->>>>>>> Stashed changes
       </div>
     </section>
     <section class="search-nav">
@@ -28,30 +22,6 @@
         <div class="desktop-menu">
         <a href="index.html">HOME</a>
 
-<<<<<<< Updated upstream
-      <input type="checkbox" id="menu-checkbox">
-      <label for="menu-checkbox"><img src="icons/hamburger_menu.svg" alt="Menu link"></label>
-      <nav id="navmenu">
-        <section class="top-line"></section>
-        <section class="top-nav"><a href="index.html"><img src="/images/GameHub.jpg" alt="GameHub logo" class="navLogo"></a></section>
-        <section class="search-nav"><label for="menu-checkbox"><img src="icons/cross.svg" alt="Close menu"></label></section>
-        <a href="index.html" class="mainlink">Home</a>
-        <a href="allgames.html" class="mainlink">Games</a>
-        <a href="actiongames.html" class="sublink">- Action</a>
-        <a href="RPGgames.html" class="sublink">- Roleplaying</a>
-        <a href="racinggames.html" class="sublink">- Racing</a>
-        <a href="sportsgames.html" class="sublink">- Sports</a>
-        <a href="familygames.html" class="sublink">- Family</a>
-        <a href="preownedgames.html" class="mainlink">Preowned</a>
-        <a href="preownedgames.html" class="sublink">- Buy Games</a>
-        <a href="preownedgames.html" class="sublink">- Sell Games</a>
-        <a href="contact.html" class="mainlink">Contact us</a>
-        <a href="about.html" class="mainlink">About us</a>
-      </nav>
-      <form class="searchbar">
-        <input type="text" placeholder="SEARCH" name="search">
-        <button type="submit"><img  class="searchicon" src="icons/search.svg" alt="Search button"></button>
-=======
           <div class="dropdown"><a href="allgames.html">GAMES▾</a>
           <ul class="games-dropdown">
           <a href="genre.html?genre=Action"><li><img src="icons/actionwhite.svg" class="dropdown-icon" alt="Action game icon"> Action</li></a>
@@ -66,7 +36,6 @@
       <form class="searchbar" action="search.html" method="get">
         <input type="text" placeholder="SEARCH" name="search" id="search-input">
         <button type="submit" id="search-button"><img  class="searchicon" src="icons/search.svg" alt="Search button"></button>
->>>>>>> Stashed changes
       </form>
       <div class="mobile-menu">
       <input type="checkbox" id="menu-checkbox">
@@ -88,49 +57,40 @@
   </header>
   <main>
     <section class="navLine">
-        <a href="/index.html">HOME</a><p>></p><a href="">CART</a><p>></p>
+        <a href="/index.html">HOME</a><p>></p><a href="">CART</a>
     </section>
     <h1 class="hidden">Cart</h1>
     <section class="borderbox cartWrapper">
       <div class="cartHeader">
       <h2>CART</h2>
-      <h3>Empty Cart</h3>
+      <h3 class="empty-button"><a href="cart.html">Empty Cart</a></h3>
     </div>
+    <div class="loading-wrapper">
+    <div class="loading"></div>
+  </div>
       <table>
-        <thead>
         <tr>
-          <th></th>
+          <th>Cover</th>
           <th>Product</th>
           <th>Quantity</th>
           <th>Price</th>
         </tr>
-<<<<<<< Updated upstream
-        <tr>
-          <td><img src="images/RacingCover.jpg" alt="Racing game cover" class="cartCover"></td>
-          <td><b>Racing</b><p>Digital CD key</p></td>
-          <td><input type="number" value="1"></td>
-          <td>$49.99</td>
-        </tr>
-=======
-      </thead>
-       
-       <tbody class="cart-container">
+       </table>
+       <table class="cart-container">
   
-       </tbody>
-      <tfoot>
+      </table>
+      <table>
 
->>>>>>> Stashed changes
         <tr class="tableline">
           <td></td>
           <td>Total</td>
           <td></td>
-          <td>$49.99</td>
+          <td class="price">$0</td>
         </tr>
-      </tfoot>
       </table>
       <div class="buttonWrapper">
-      <a href="checkout.html"><button class="CTA CTAinfo checkout-button"><h3>CHECKOUT</h3></button></a>
-      <a href="allgames.html"><button class="CTA continueShopping"><h3>CONTINUE SHOPPING</h3></button></a>
+      <a href="checkout.html"><div class="CTA CTAinfo"><h3>CHECKOUT</h3></div></a>
+      <a href="allgames.html"><div class="CTA continueShopping"><h3>CONTINUE SHOPPING</h3></div></a>
     </div>
 
     </section>
@@ -156,5 +116,8 @@
     <section class="top-line"><p>Copyright GameHub © 2022 </p></section>
   </footer>
   <script src="/js/gamehub.js"></script>
+  <script src="/js/cart.js"></script>
+  <script src="/js/cartFunctions.js"></script>
+  <script src="/js/cartHandler.js"></script>
 </body>
 </html>

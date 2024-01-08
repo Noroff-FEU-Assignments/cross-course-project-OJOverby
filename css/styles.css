@@ -460,13 +460,8 @@ div.mobile-menu {
 .gamecontainer {
     display: grid;
     grid-template-columns: auto auto auto;
-<<<<<<< Updated upstream
-      justify-content: space-between;
-  align-content: space-between;
-=======
     justify-content: space-around;
     align-content: space-between;
->>>>>>> Stashed changes
   
 }
 
@@ -534,31 +529,9 @@ div.mobile-menu {
     background-color: #DBDADA;
 }
 
-<<<<<<< Updated upstream
-
-.actiongames .sportsgames, .actiongames .racinggames, .actiongames .RPGgames, .actiongames .familygames {
-    display: none;
-}
-
-.racinggames .sportsgames, .racinggames .RPGgames, .racinggames .actiongames, .racinggames .familygames  {
-    display: none;
-}
-
-.RPGgames .sportsgames, .RPGgames .actiongames, .RPGgames .racinggames, .RPGgames .familygames {
-    display: none;
-}
-
-.sportsgames .RPGgames, .sportsgames .racinggames, .sportsgames .actiongames, .sportsgames .familygames {
-    display: none;
-}
-
-.familygames .RPGgames, .familygames .actiongames, .familygames .racinggames, .familygames .sportsgames {
-    display: none;
-=======
 .pay-button {
     max-width: 200px;
     height: 50px;
->>>>>>> Stashed changes
 }
 
 .cartWrapper {
@@ -662,8 +635,6 @@ td input {
         text-align: center;
 
     }
-<<<<<<< Updated upstream
-=======
 
     .loading-wrapper {
         width: 100%;
@@ -733,7 +704,6 @@ td input {
         font-size: 3rem;
         margin-bottom: 20px;
     }
->>>>>>> Stashed changes
     
 /* about.html */
 

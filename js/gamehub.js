@@ -7,18 +7,6 @@ var racingGames = document.querySelectorAll('.racingSelector');
 
 
 
-<<<<<<< Updated upstream
-console.log(dimmed.style.height = screenheight+('px'));
-
-dimmed.style.height = screenheight+('px');
-
-console.log(menu)
-
-console.log(document.body.height);
-
-menu.style.height = screenheight+('px');
-
-=======
 
 var checkbox = document.getElementById('menu-checkbox');
 const menuButton = document.querySelector('.mobile-menu-button');
@@ -42,4 +30,3 @@ document.addEventListener('DOMContentLoaded', () => {
         searchButton.disabled = !searchInput.value;
     });
 });
->>>>>>> Stashed changes

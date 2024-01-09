@@ -787,6 +787,10 @@ td input {
     margin-top: 30px;
 }
 
+.error-msg {
+    color: red;
+}
+
 /* FOOTER */
 
 footer {

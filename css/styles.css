@@ -434,6 +434,7 @@ div.mobile-menu {
     border-radius: 10px;
     box-shadow: 5px 5px 5px #000000;
     text-align: center;
+    cursor: pointer;
 }
 
 .CTAinfo {
@@ -905,16 +906,23 @@ footer {
         font-size: 10px;
     }
 
-    .gamescard {
+    .gamescard, .news-container .gamescard {
         max-width: 100px;
         text-align: center;
         margin: 20px 10px 0px 10px;
         padding: 20px;
     }
 
+    .news-container .gamescard:nth-child(3) {
+        display: none;
+    }
+    
+
+
     .frontpage {
         flex-direction: column;
     }
+
 
     .news {
         width: auto;
@@ -929,7 +937,7 @@ footer {
         font-size: 16px;
     }
     
-    .cover-card {
+    .cover-card, .news-container .cover-card {
         max-width: 100px;
         height: auto;
 

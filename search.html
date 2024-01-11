@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameHub - Home</title>
+  <meta name="description" content="GameHub is your source for buying digital games and buying and selling your used games">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Hotjar Tracking Code for my site -->
+<script>
+  (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:3821934,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+<body>
+    <header>
+        <section class="top-line"><p>Your source for digital games online</p></section>
+        <section class="top-nav"><a href="index.html"><img src="/images/GameHub.jpg" alt="GameHub logo" class="navLogo"></a>
+          <div class="iconcontainer">
+            <a href="cart.html" class="relative"><img src="icons/shopping_cart.svg" alt="Shopping cart icon" class="navicon"><div class="cart-counter hidden"></div></a>
+          </div>
+        </section>
+        <section class="search-nav">
+          <div class="nav-wrapper">
+            <div class="desktop-menu">
+            <a href="index.html">HOME</a>
+    
+              <div class="dropdown"><a href="allgames.html">GAMES▾</a>
+              <ul class="games-dropdown">
+              <a href="genre.html?genre=Action"><li><img src="icons/actionwhite.svg" class="dropdown-icon" alt="Action game icon"> Action</li></a>
+              <a href="genre.html?genre=Adventure"><li><img src="icons/adventurewhite.svg" class="dropdown-icon" alt="Adventure game icon"> Adventure</li></a>
+              <a href="genre.html?genre=Horror"><li><img src="icons/horrorwhite.svg" class="dropdown-icon" alt="Horror game icon"> Horror</li></a>
+              <a href="genre.html?genre=Sports"><li><img src="icons/sportswhite.svg" class="dropdown-icon" alt="Sports game icon"> Sports</li></a>
+          </ul></div>
+            <a href="contact.html">CONTACT US</a>
+            <a href="about.html">ABOUT US</a>
+          </div>
+          
+          <form class="searchbar" action="search.html" method="get">
+            <input type="text" placeholder="SEARCH" name="search" id="search-input">
+            <button type="submit" id="search-button"><img  class="searchicon" src="icons/search.svg" alt="Search button"></button>
+          </form>
+          <div class="mobile-menu">
+          <input type="checkbox" id="menu-checkbox">
+          <label for="menu-checkbox"><div class="mobile-menu-button"><div class="hamburger-menu"></div></div></label>
+          <div id="mobile-dropdown-menu">
+          <ul>
+            <li><a href="index.html" class="mainlink"><img src="icons/home.svg" alt="home icon"> Home</a></li>
+            <li><a href="allgames.html" class="mainlink"><img src="icons/games.svg" alt=""> Games</a></li>
+            <li><a href="genre.html?genre=Action" class="sublink"><img src="icons/action.svg" alt="">  - Action</a></li>
+            <li><a href="genre.html?genre=Adventure" class="sublink"><img src="icons/adventure.svg" alt="">  - Adventure</a></li>
+            <li><a href="genre.html?genre=Horror" class="sublink"><img src="icons/horror.svg" alt="">  - Horror</a></li>
+            <li><a href="genre.html?genre=Sports" class="sublink"><img src="icons/sports.svg" alt="">  - Sports</a></li>
+            <li><a href="contact.html" class="mainlink"><img src="icons/mail.svg" alt=""> Contact us</a></li>
+            <li><a href="about.html" class="mainlink"><img src="icons/aboutus.svg" alt=""> About us</a></li>
+          </ul>
+          </div>
+        </div>
+        </section>
+      </header>
+  <main>
+    <h1 class="hidden">Welcome to GameHub</h1>
+            <h2 class="centered">Searching for "<span class="search-query"></span>"</h2>
+            <div class="gamecontainer">
+                <div></div>
+                <div class="loading"></div>
+                <div></div>
+            </div>
+  </main>
+  <footer>
+    <section class="footerwrap">
+    <div class="leftfooter">
+      <a href="#"><img src="icons/twitter.svg" alt="twitter logo" class="footericon"></a>
+      <a href="#"><img src="icons/instagram.svg" alt="instagram logo" class="footericon"></a>
+      <a href="#"><img src="icons/facebook.svg" alt="facebook logo" class="footericon"></a>
+    </div>
+    <div class="footermain">
+      <h2>GameHub</h2>
+      <p>Your universe in games</p>
+      <p>GameHub is a online shop specialiced in selling digital versions of popular games. Our site allso offers you the possibilty to buy and sell used games. </p>
+    </div>
+    <div class="rightfooter">
+     <a href="index.html"><h3>Home</h3></a>
+     <a href="contact.html"><h3>Contact us</h3></a>
+     <a href="about.html"><h3>About us</h3></a>
+    </div>
+  </section>
+    <section class="top-line"><p>Copyright GameHub © 2022 </p></section>
+  </footer>
+  <script src="/js/gamehub.js"></script>
+  <script src="/js/cartHandler.js"></script>
+  <script src="/js/search.js"></script>
+</body>
+</html>

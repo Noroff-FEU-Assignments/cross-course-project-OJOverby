@@ -8,52 +8,78 @@
   <meta name="description" content="GameHub is your source for buying digital games and buying and selling your used games. Get in touch with us and let us know if you got any questions.">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Hotjar Tracking Code for my site -->
+<script>
+  (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:3821934,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
 </head>
 <body>
   <header>
     <section class="top-line"><p>Your source for digital games online</p></section>
     <section class="top-nav"><a href="index.html"><img src="/images/GameHub.jpg" alt="GameHub logo" class="navLogo"></a>
       <div class="iconcontainer">
-        <a href="contact.html"><img src="icons/contact.svg" alt="Contact icon" class="navicon contacticon"></a>
-        <a href=""><img src="icons/profile.svg" alt="Profile icon" class="navicon"></a>
         <a href="cart.html" class="relative"><img src="icons/shopping_cart.svg" alt="Shopping cart icon" class="navicon"><div class="cart-counter hidden"></div></a>
       </div>
     </section>
     <section class="search-nav">
+      <div class="nav-wrapper">
+        <div class="desktop-menu">
+        <a href="index.html">HOME</a>
 
-      <input type="checkbox" id="menu-checkbox">
-      <label for="menu-checkbox"><img src="icons/hamburger_menu.svg" alt="Menu link"></label>
-      <nav id="navmenu">
-        <section class="top-line"></section>
-        <section class="top-nav"><a href="index.html"><img src="/images/GameHub.jpg" alt="GameHub logo" class="navLogo"></a></section>
-        <section class="search-nav"><label for="menu-checkbox"><img src="icons/cross.svg" alt="Close menu"></label></section>
-        <a href="index.html" class="mainlink">Home</a>
-        <a href="allgames.html" class="mainlink">Games</a>
-        <a href="genre.html?genre=Action" class="sublink">- Action</a>
-        <a href="genre.html?genre=Adventure" class="sublink">- Adventure</a>
-        <a href="genre.html?genre=Horror" class="sublink">- Horror</a>
-        <a href="genre.html?genre=Sports" class="sublink">- Sports</a>
-        <a href="contact.html" class="mainlink">Contact us</a>
-        <a href="about.html" class="mainlink">About us</a>
-      </nav>
-      <form class="searchbar">
-        <input type="text" placeholder="SEARCH" name="search">
-        <button type="submit"><img  class="searchicon" src="icons/search.svg" alt="Search button"></button>
+          <div class="dropdown"><a href="allgames.html">GAMES▾</a>
+          <ul class="games-dropdown">
+          <a href="genre.html?genre=Action"><li><img src="icons/actionwhite.svg" class="dropdown-icon" alt="Action game icon"> Action</li></a>
+          <a href="genre.html?genre=Adventure"><li><img src="icons/adventurewhite.svg" class="dropdown-icon" alt="Adventure game icon"> Adventure</li></a>
+          <a href="genre.html?genre=Horror"><li><img src="icons/horrorwhite.svg" class="dropdown-icon" alt="Horror game icon"> Horror</li></a>
+          <a href="genre.html?genre=Sports"><li><img src="icons/sportswhite.svg" class="dropdown-icon" alt="Sports game icon"> Sports</li></a>
+      </ul></div>
+        <a href="contact.html">CONTACT US</a>
+        <a href="about.html">ABOUT US</a>
+      </div>
+      
+      <form class="searchbar" action="search.html" method="get">
+        <input type="text" placeholder="SEARCH" name="search" id="search-input">
+        <button type="submit" id="search-button"><img  class="searchicon" src="icons/search.svg" alt="Search button"></button>
       </form>
-      <section class="dimmed"><label for="menu-checkbox"></label></section>
+      <div class="mobile-menu">
+      <input type="checkbox" id="menu-checkbox">
+      <label for="menu-checkbox"><div class="mobile-menu-button"><div class="hamburger-menu"></div></div></label>
+      <div id="mobile-dropdown-menu">
+      <ul>
+        <li><a href="index.html" class="mainlink"><img src="icons/home.svg" alt="home icon"> Home</a></li>
+        <li><a href="allgames.html" class="mainlink"><img src="icons/games.svg" alt=""> Games</a></li>
+        <li><a href="genre.html?genre=Action" class="sublink"><img src="icons/action.svg" alt="">  - Action</a></li>
+        <li><a href="genre.html?genre=Adventure" class="sublink"><img src="icons/adventure.svg" alt="">  - Adventure</a></li>
+        <li><a href="genre.html?genre=Horror" class="sublink"><img src="icons/horror.svg" alt="">  - Horror</a></li>
+        <li><a href="genre.html?genre=Sports" class="sublink"><img src="icons/sports.svg" alt="">  - Sports</a></li>
+        <li><a href="contact.html" class="mainlink"><img src="icons/mail.svg" alt=""> Contact us</a></li>
+        <li><a href="about.html" class="mainlink"><img src="icons/aboutus.svg" alt=""> About us</a></li>
+      </ul>
+      </div>
+    </div>
     </section>
   </header>
   <main class="smallermain">
-    <section class="contactform">
+    <form class="contactform" id="contactForm">
     <h1>Contact us</h1>
     <label for="fullname">Name:</label>
-    <input type="text" name="fullname">
+    <input type="text" name="fullname" id="fullName">
+    <div class="error-msg" id="nameError">You need to enter a name</div>
     <label for="email">E-mail:</label>
-    <input type="email" name="email">
+    <input type="email" name="email" id="email">
+    <div class="error-msg" id="emailError">You need to enter a valid email address</div>
     <label for="message">Message:</label>
     <textarea name="message" id="message" cols="20" rows="10"></textarea>
-    <a href="#"><div class="CTA sendFormButton">SEND</div></a>
-  </section>
+    <div class="error-msg" id="msgError">Ops, you forgot your message</div>
+    <button class="CTA sendFormButton">SEND</button>
+    </form>
   </main>
   <footer>
     <section class="footerwrap">
@@ -76,7 +102,9 @@
       <section class="top-line"><p>Copyright GameHub © 2022 </p></section>
   </footer>
   <script src="/js/gamehub.js"></script>
+  <script src="/js/search.js"></script>
   <script src="/js/cartHandler.js"></script>
+  <script src="/js/formValidator.js"></script>
   
 </body>
 </html>

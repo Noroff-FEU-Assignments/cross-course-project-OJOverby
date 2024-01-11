@@ -31,6 +31,17 @@ function decreaseItems (id){
         itemPrice.innerHTML = "$"+priceForItems.toFixed(2);
       });
     }
+
+    else if (item.id === id && item.quantity < 2){
+      const removeItem = confirm("This will remove the item from your cart");
+        if(removeItem){
+        cart = cart.filter(cartItem => cartItem.id !== id);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        location.reload();
+  }
+  
+    }
+
     localStorage.setItem("cart", JSON.stringify(cart));
 
   })

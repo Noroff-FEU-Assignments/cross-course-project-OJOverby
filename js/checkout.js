@@ -1,4 +1,5 @@
 const checkoutContainer = document.querySelector(".checkout-container");
+const loadingWrapper = document.querySelector(".loading-wrapper");
 const checkoutPrice = document.querySelector(".total-price");
 const url = "https://api.noroff.dev/api/v1/gamehub/";
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -12,12 +13,12 @@ async function getCartItem(gameId){
       const response = await fetch(url);
       const cartItem = await response.json();
       cartQuantity = cart.find(item => item.id === cartItem.id);
-      
+      loadingWrapper.innerHTML = "";
       checkoutContainer.innerHTML += `
         
       <tr>
-                <td><img src="${cartItem.image}" alt="${cartItem.title} game cover" class="cartCover"></td>
-                <td><h3><b>${cartItem.title}</b></h2>
+              <td><img src="${cartItem.image}" alt="${cartItem.title} game cover" class="cartCover"></td>
+              <td><h3><b>${cartItem.title}</b></h2>
                     <p>Digital CD key</p>
                     <p>Quantity: ${cartQuantity.quantity}</p>
                     <p>Price: ${cartItem.price*cartQuantity.quantity}</p>
@@ -36,7 +37,7 @@ async function getCartItem(gameId){
     }
 
     function runCart(){
-      checkoutContainer.innerHTML = "";
+      
         const idArray = cart.map(item => item.id);
         if(idArray.length===0){
           cartContainer.innerHTML = `<p>There are no items in your cart<p>`

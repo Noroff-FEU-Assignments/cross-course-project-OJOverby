@@ -1,5 +1,6 @@
 const cartContainer = document.querySelector(".cart-container");
 const emptyButton = document.querySelector(".empty-button");
+const checkoutButton = document.querySelector(".checkout-button");
 const loadingWrap = document.querySelector(".loading-wrapper");
 const price = document.querySelector(".price");
 const url = "https://api.noroff.dev/api/v1/gamehub/";
@@ -23,7 +24,7 @@ async function getCartItem(gameId){
       cartContainer.innerHTML += `
         
       <tr>
-          <td><img src="${cartItem.image}" alt="${cartItem.image} game cover" class="cartCover"></td>
+          <td><a href="/details.html?id=${cartItem.id}"><img src="${cartItem.image}" alt="${cartItem.image} game cover" class="cartCover"></a></td>
           <td><b>${cartItem.title}</b><p>Digital CD key</p></td>
           <td><div class="inline"><div class="minus-button" onclick="decreaseItems('${cartItem.id}')">-</div><div id="quantity-id-${cartItem.id}" class="quantity-number">${cartQuantity.quantity}</div><div class="plus-button" onclick="increaseItems('${cartItem.id}')">+</div></div></td>
           <td><div id="item-price-${cartItem.id}" class="item-price">$${(cartItem.price*cartQuantity.quantity).toFixed(2)}</div></td>
@@ -44,7 +45,8 @@ async function getCartItem(gameId){
     const idArray = cart.map(item => item.id);
     loadingWrap.innerHTML = "";
     if(idArray.length===0){
-      cartContainer.innerHTML = `<p>There are no items in your cart<p>`
+      cartContainer.innerHTML = `<p>There are no items in your cart<p>`; 
+      checkoutButton.style.display = 'none';
     } else {
       idArray.forEach(function(gameId){
         getCartItem(gameId);

@@ -27,11 +27,11 @@ async function getGenreGames() {
         filteredGames.forEach(function(game){
             gameContainer.innerHTML += `
             <section class="gamescard">
-            <img src="${game.image}" alt="${game.title} game cover" class="cover-card">
+            <a href="/details.html?id=${game.id}"><img src="${game.image}" alt="${game.title} game cover" class="cover-card"></a>
             <h2>${game.title}</h2>
             <h2>${game.price}</h2>
-            <div class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</div>
-            <a href="/details.html?id=${game.id}"><div class="readmorebutton-card">READ MORE</div></a>
+            <button class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</button>
+            <a href="/details.html?id=${game.id}"><button class="CTA readmorebutton-card">READ MORE</button></a>
             </section>
             `;
         })

@@ -30,7 +30,7 @@ async function fetchGame(){
     </section>
   <section class="saleInfo">
     <h2>${details.price}</h2>
-    <div class="CTA CTAinfo cartButton" data-id="${details.id}"><h3>ADD TO CART</h3></div>
+    <button class="CTA CTAinfo cartButton" data-id="${details.id}"><h3>ADD TO CART</h3></button>
   </section>`;
   const cartButton = document.querySelector(".cartButton")
   cartButton.addEventListener("click", function() {

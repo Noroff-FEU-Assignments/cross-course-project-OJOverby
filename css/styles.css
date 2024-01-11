@@ -1,5 +1,5 @@
 
-html {
+* {
     margin: 0;
     padding: 0;
 }
@@ -23,39 +23,7 @@ a {
 
 /* --- HEADER --- */
 
-nav, #menu-checkbox {
-    display: none;
-}
 
-#menu-checkbox:checked ~ nav {
-    display: block;
-}
-
-#menu-checkbox:checked ~ .dimmed {
-    display: block;
-}
-
-
-
-
-nav {
-    position: absolute;
-    z-index: 3;
-    background-color: #FFFFFF;
-    height: 100%;
-    width: 20%;
-    color: #000000;
-    border: solid 2px;
-    top: 0;
-    left: 0;
-}
-
-nav a {
-    display: block;
-    font-weight: 600;
-    color: #000000;
-    text-decoration: none;
-}
 
 .mainlink {
     margin-left: 20px;
@@ -72,21 +40,14 @@ nav a {
     text-decoration: underline;
 }
 
-.dimmed {
-    display: none;
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color:#000000;
-    opacity: 0.5;
-}
+
 
 .top-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 30px;
+    height: 20px;
     background-color: #9B5CF2;
     color: #FFFFFF;
     text-align: center;
@@ -106,7 +67,7 @@ nav a {
 }
 
 .navLogo {
-    max-height: 100px;
+    max-height: 85px;
     width: auto;
     padding-top: 2px;
 }
@@ -125,20 +86,76 @@ nav a {
     align-items: center;
 }
 
-.search-nav .top-line {
-    margin-top: -2px;
+.nav-wrapper {
+    width: 66%;
+    display: flex;
+    align-items: center;
 }
+
+.desktop-menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-grow: 1;
+
+}
+
+.nav-wrapper a {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1.2rem;
+  
+
+}
+
+.nav-wrapper a:hover {
+    text-decoration: underline;
+    text-decoration-color: #F28627;
+
+}
+
+
+
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    padding: 10px;
+}
+
+.dropdown {
+    position: relative;
+   
+}
+
+.games-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #89BF15;
+    width: max-content;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.dropdown:hover .games-dropdown {
+    display: block;
+}
+
+
 
 
 
 .searchbar {
     display: flex;
     background-color: #FFFFFF;
-    width: 40%;
+    min-width: 150px;
+    max-width: 20%;
     height: 70%;
     border-radius: 60px;
     align-items: center;
     justify-content: center;
+    margin-left: 10%;
 }
 
 .searchbar input {
@@ -175,15 +192,22 @@ nav a {
     object-fit: scale-down;
 }
 
+.navicon:hover {
+    scale: 1.2;
+}
+
+.align-right {
+    margin-left: auto;
+}
+
 main {
     width: 66%;
     margin: auto;
-    padding-top: 30px;
- 
 }
 
 .navLine {
     width: 100%;
+    margin-top: 20px;
     border-bottom: solid 2px;
     border-color: #9B5CF2;
 }
@@ -200,7 +224,8 @@ main {
 .borderbox {
     width: 100%;
     border: solid 1px;
-    border-color: #9B5CF2;
+     border-color: #9B5CF2; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin: 50px 0 50px 0;
 }
 
@@ -209,9 +234,205 @@ main {
     height: auto;
 }
 
+.dropdown-icon {
+    height: 1.3rem;
+    width: auto;
+}
+
+.games-dropdown li {
+    border-top: 1px solid #FFFFFF;
+}
+
+/* Mobile Menu */
+
+#menu-checkbox {
+    display: none;
+}
+
+
+div.mobile-menu {
+    display: none;
+}
+
+#mobile-dropdown-menu,#menu-checkbox, #explore-checkbox, #mobile-explore-dropdown, #exhi-checkbox, #mobile-exhi-dropdown {
+    display: none;
+}
+
+#menu-checkbox:checked ~ #mobile-dropdown-menu {
+    display: block;
+}
+
+
+
+#mobile-dropdown-menu {
+    padding-top: 20px;
+    margin-top: 180px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100dvh;
+    background-color: #FFFF;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    z-index: 4;
+    animation: slidedown 0.3s ease-in-out;
+    transform-origin: top center;
+}
+
+#mobile-dropdown-menu a {
+    color: #000000;
+}
+
+#mobile-dropdown-menu li {
+    border-bottom: 1px solid grey;
+}
+
+@keyframes slidedown {
+    0% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+
+
+.mouse-pointer {
+    cursor: pointer;
+}
+
+.mobile-menu-button {
+    float: right;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.hamburger-menu {
+    content: '';
+    width: 40px;
+    height: 6px;
+    background-color:#000000;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.hamburger-menu::before,  .hamburger-menu::after{
+    content: '';
+    width: 40px;
+    height: 6px;
+    background-color:#000000;
+    position: absolute;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.hamburger-menu::before {
+    top: 12px;
+}
+
+.hamburger-menu::after {
+    bottom: 12px;
+}
+
+.mobile-menu-button.open .hamburger-menu::before {
+    transform: rotate(45deg) translate(5px, 10px);
+}
+
+.mobile-menu-button.open .hamburger-menu::after {
+    transform: rotate(-45deg) translate(5px, -10px);
+}
+
+
+.mobile-menu-button.open .hamburger-menu {
+    background-color: #89BF15;
+}
+
 /* MAIN */
 
+.centered {
+    text-align: center;
+}
 
+
+
+.frontpage ul {
+    list-style:disc;
+    padding-left: 10px;
+}
+
+.frontpage li {
+    padding: 0;
+}
+
+.front-info-container {
+    background-image: url("/images/frontbanner.jpg");
+    background-size: cover;
+    background-position: center;
+ 
+}
+
+.front-info {
+    min-width: 30%;
+    max-width: 20vw;
+    max-height: 90%;
+    background-color: white;
+    margin-left: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.front-info p, .front-info li {
+    font-size: 1vw;
+}
+
+.front-info h3 {
+    margin-top: 1vw;
+    font-size: 1.3vw;
+}
+
+.front-info .CTA {
+    margin-top: 10px;
+}
+
+.news {
+    height: fit-content;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+.news-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+.news-container .gamescard {
+    max-width: 150px;
+}
+
+.news-container .cover-card {
+    max-width: 150px;
+}
+
+.news-title {
+    background-color: #9B5CF2;
+    color: #FFFFFF;
+    padding: 5px
+}
 
 .gameInfo {
     padding: 40px;
@@ -229,11 +450,14 @@ main {
 }
 
 .CTA {
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #FFFFFF;
     background-color: #9B5CF2;
     border: solid black 1px;
-    border-radius: 5%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #000000;
     text-align: center;
     cursor: pointer;
 }
@@ -303,18 +527,29 @@ main {
 .gamecontainer {
     display: grid;
     grid-template-columns: auto auto auto;
-    justify-content: space-between;
+    justify-content: space-around;
     align-content: space-between;
   
 }
 
 
 .gamescard {
-    border: solid 1px black;
+    box-shadow: 2px 6px 10px rgba(0,0,0,.5);
     max-width: 200px;
     text-align: center;
     margin: 30px 5px 0px 5px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gamescard h2 {
+    margin: 5px;
+}
+
+.gamescard img:hover {
+    scale: 1.1;
 }
 
 .cover-card {
@@ -322,10 +557,14 @@ main {
     height: auto;
 }
 
+.button-container {
+    bottom: 0;
+}
+
 .addgamesbutton-card {
-    width: 70%;
+    width: 80%;
     margin: auto;
-    padding: 5px;
+    padding: 10px 5px 10px 5px;
 }
 
 
@@ -344,19 +583,23 @@ main {
 
 .readmorebutton-card {
     background-color: #F5F5F5;
-    width: 70%;
+    color: black;
+    width: 80%;
     border: solid black 1px;
-    border-radius: 5%;
     text-align: center;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 15px;
-    padding: 5px;
+    padding: 10px 5px 10px 5px;
 }
 .readmorebutton-card:hover {
     background-color: #DBDADA;
 }
 
-
+.pay-button {
+    max-width: 200px;
+    height: 50px;
+}
 
 .cartWrapper {
     display: block;
@@ -371,9 +614,9 @@ main {
     margin: 20px;
 }
 
-.cartWrapper h3 {
-    margin-left: auto;
+.empty-button {
     color: red;
+    margin-left: auto;
 }
 
 .cartCover {
@@ -403,13 +646,18 @@ td input {
 
 .checkoutWrapper {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr 1fr;
         column-gap: 40px;
+        justify-content: center;
+    }
+
+    .checkout-form {
+        width: auto;
     }
 
     .side-info {
-        min-height: auto;
-        padding: 5px;
+        height:fit-content;
+        padding: 15px;
     }
 
 .infoPageWrapper {
@@ -418,7 +666,7 @@ td input {
 
     .buttonWrapper {
         display: flex;
-       flex-direction: column;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-top: 30px;
@@ -510,6 +758,19 @@ td input {
         text-align: center;
         font-weight: bolder;
       }
+
+      .saleInfo {
+        display: flex;
+      flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin:  5px 20px 20px auto;
+    }
+
+    .saleInfo h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
     
 /* about.html */
 
@@ -540,7 +801,8 @@ td input {
 }
 
 .contactform input {
-    width: 60%;
+    max-width: 200px;
+    height: 1.5rem;
 }
 
 .contactform label {
@@ -549,6 +811,14 @@ td input {
 
 .contactform .CTA {
     margin-top: 30px;
+}
+
+.error-msg {
+    color: red;
+}
+
+#nameError, #emailError, #msgError {
+    display: none;
 }
 
 /* FOOTER */
@@ -566,10 +836,9 @@ footer {
 }
 
 .footericon {
-    height: 40px;
+    height: 25px;
     width: auto;
     display: block;
-    padding-top: 10px;
 }
 
 .footermain {
@@ -579,21 +848,67 @@ footer {
     padding-bottom: 3%;
 }
 
+.rightfooter, .leftfooter {
+    display: flex;;
+    flex-direction: column;
+    justify-content:space-around;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .rightfooter a {
     color: #FFFFFF;
 }
 
 @media (max-width: 1150px) {
     .coverImg {
-        max-width: 70px;
+        max-width: auto;
         height: auto;
-        padding: 10px;
+        margin: 5px;
+        padding: 0;
     }
+
+    .saleInfo {
+        max-width: 100px;
+    }
+
+    .CTAinfo {
+        max-width: 120px;
+       
+    }
+
+    .CTAinfo.checkout-button {
+        max-width: 200px;
+    }
+
+
+    
+
 
 }
 
 @media (max-width: 900px) {
+
+    div.mobile-menu {
+        display: block;
+    }
+
+    .nav-wrapper {
+        width: 90%;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .desktop-menu {
+        display: none;
+    }
     
+    .top-nav {
+        width: 90%;
+    }
+
     .contacticon {
         display: none;
     }
@@ -606,6 +921,11 @@ footer {
         width: 90%;
     }
 
+    .searchbar {
+        margin-left: auto;
+        margin-right: 25px;
+    }
+
     .gamecontainer {
         display: grid;
         grid-template-columns: auto auto;
@@ -615,19 +935,46 @@ footer {
         font-size: 10px;
     }
 
-    .gamescard {
-        border: solid 1px black;
+    .gamescard, .news-container .gamescard {
         max-width: 100px;
         text-align: center;
         margin: 20px 10px 0px 10px;
         padding: 20px;
     }
 
+    .news-container .gamescard:nth-child(3) {
+        display: none;
+    }
+    
+
+
+    .news {
+        width: auto;
+    }
+
+    .frontpage .front-info {
+        width: auto;
+       margin-left: auto;
+    }
+
+    .front-info p, .front-info li {
+        font-size: 0.7rem;
+    }
+
+    .front-info h3 {
+        font-size: 0.7rem;
+    }
+
+    .front-info button {
+        font-size: 0.7rem;
+        width: 90%;
+    }
+
     .gamescard h2 {
         font-size: 16px;
     }
     
-    .cover-card {
+    .cover-card, .news-container .cover-card {
         max-width: 100px;
         height: auto;
 
@@ -655,16 +1002,30 @@ footer {
         padding: 0px
     }
 
-    .saleInfo .CTAinfo {
+   .saleInfo .CTAinfo {
         width: 100px;
         height: 30px;
     }
 
+    .saleInfo h2 {
+        font-size: 2rem;
+    }
+
+ 
+
     .borderbox {
         margin: 50px 5px 50px 5px;
     }
+
+    .front-info.borderbox {
+        margin-left: auto;
+        margin-right: 0;
+    }
     
- 
+    .side-info h2 {
+        font-size: 10px;
+        margin-right: 5px;
+    }
 
     .cartCover {
         max-width: 50px;
@@ -684,4 +1045,11 @@ footer {
     }
 
     
+}
+
+@media (max-width: 600px) {
+    .hide-smallscreen {
+        display: none;
+    }
+
 }

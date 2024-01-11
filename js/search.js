@@ -1,36 +1,48 @@
+const params = new URLSearchParams(window.location.search);
+const searchTerm = params.get('search');
+const searchQuery = document.querySelector(".search-query");
+searchQuery.innerHTML = searchTerm;
 const url = "https://api.noroff.dev/api/v1/gamehub";
 const gameContainer = document.querySelector(".gamecontainer");
+const queryString = document.location.search;
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
-async function getAllGames() {
+
+
+
+async function getSearchedGames() {
 
     try {
         const response = await fetch(url);
         const games = await response.json();
         gameContainer.innerHTML = "";
-    
-        games.forEach(function(game){
+        filteredGames = games.filter(game => game.title.toLowerCase().includes(searchTerm.toLowerCase()));
+        
+        if(filteredGames.length > 0) {
+        filteredGames.forEach(function(game){
             gameContainer.innerHTML += `
             <section class="gamescard">
             <a href="/details.html?id=${game.id}"><img src="${game.image}" alt="${game.title} game cover" class="cover-card"></a>
             <h2>${game.title}</h2>
             <h2>${game.price}</h2>
-            <div class="button-container">
-            <button class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</button>
-            <a href="/details.html?id=${game.id}"><button class="CTA readmorebutton-card">READ MORE</button></a>
-            </div>
+            <div class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</div>
+            <a href="/details.html?id=${game.id}"><div class="CTA readmorebutton-card">READ MORE</div></a>
             </section>
             `;
-
         })
+    } else {
+        gameContainer.innerHTML = "<h3>We found no games with your search, try again with different title</h3>";
+    }
+    
+    
     } catch (error) {
         gameContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
     }
     
 }
 
-getAllGames();
+getSearchedGames();
 
 function addToCart(gameId){
 

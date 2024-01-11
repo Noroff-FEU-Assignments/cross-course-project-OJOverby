@@ -16,13 +16,9 @@ async function getNewestGames() {
         sortedGames.forEach(function(game){
             newsContainer.innerHTML += `
             <section class="gamescard">
-            <a href="/details.html?id=${game.id}"><img src="${game.image}" alt="${game.title} game cover" class="cover-card"></a>
+            <a href="/details.html?id=${game.id}"><img src="${game.image}" alt="${game.title} game cover" class="cover-card">
             <h2>${game.title}</h2>
-            <h2>${game.price}</h2>
-            <div class="button-container">
-            <button class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</button>
-            <a href="/details.html?id=${game.id}"><button class="CTA readmorebutton-card">READ MORE</button></a>
-            </div>
+            </a>
             </section>
             `;
 

@@ -200,17 +200,14 @@ ul li {
     margin-left: auto;
 }
 
-
-
 main {
     width: 66%;
     margin: auto;
-    padding-top: 30px;
- 
 }
 
 .navLine {
     width: 100%;
+    margin-top: 20px;
     border-bottom: solid 2px;
     border-color: #9B5CF2;
 }
@@ -368,10 +365,7 @@ div.mobile-menu {
     text-align: center;
 }
 
-.frontpage {
-    display: flex;
-    justify-content: center;
-}
+
 
 .frontpage ul {
     list-style:disc;
@@ -382,15 +376,40 @@ div.mobile-menu {
     padding: 0;
 }
 
+.front-info-container {
+    background-image: url("/images/frontbanner.jpg");
+    background-size: cover;
+    background-position: center;
+ 
+}
+
 .front-info {
-    width: 30%;
+    min-width: 30%;
+    max-width: 20vw;
+    max-height: 90%;
+    background-color: white;
+    margin-left: auto;
     padding: 20px;
-    margin-left: 20px;
+    box-sizing: border-box;
+}
+
+.front-info p, .front-info li {
+    font-size: 1vw;
+}
+
+.front-info h3 {
+    margin-top: 1vw;
+    font-size: 1.3vw;
+}
+
+.front-info .CTA {
+    margin-top: 10px;
 }
 
 .news {
     height: fit-content;
     padding-bottom: 30px;
+    width: 100%;
 }
 
 .news-container {
@@ -407,6 +426,12 @@ div.mobile-menu {
 
 .news-container .cover-card {
     max-width: 150px;
+}
+
+.news-title {
+    background-color: #9B5CF2;
+    color: #FFFFFF;
+    padding: 5px
 }
 
 .gameInfo {
@@ -792,6 +817,10 @@ td input {
     color: red;
 }
 
+#nameError, #emailError, #msgError {
+    display: none;
+}
+
 /* FOOTER */
 
 footer {
@@ -919,18 +948,26 @@ footer {
     
 
 
-    .frontpage {
-        flex-direction: column;
-    }
-
-
     .news {
         width: auto;
     }
 
     .frontpage .front-info {
         width: auto;
-        margin: 0;
+       margin-left: auto;
+    }
+
+    .front-info p, .front-info li {
+        font-size: 0.7rem;
+    }
+
+    .front-info h3 {
+        font-size: 0.7rem;
+    }
+
+    .front-info button {
+        font-size: 0.7rem;
+        width: 90%;
     }
 
     .gamescard h2 {
@@ -979,6 +1016,11 @@ footer {
     .borderbox {
         margin: 50px 5px 50px 5px;
     }
+
+    .front-info.borderbox {
+        margin-left: auto;
+        margin-right: 0;
+    }
     
     .side-info h2 {
         font-size: 10px;
@@ -1003,4 +1045,11 @@ footer {
     }
 
     
+}
+
+@media (max-width: 600px) {
+    .hide-smallscreen {
+        display: none;
+    }
+
 }

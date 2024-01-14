@@ -1,5 +1,6 @@
 const gameDetails = document.querySelector(".infoPageWrapper");
 const gameGenre = document.querySelector(".genres");
+const currentGame = document.querySelector(".currentGame");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
@@ -14,6 +15,7 @@ async function fetchGame(){
 
     gameGenre.innerHTML = details.genre.toUpperCase();
     gameGenre.href = "/genre.html?genre="+details.genre;
+    currentGame.innerHTML = details.title.toUpperCase();
 
     gameDetails.innerHTML = `
     <section class="coverImg"><img src="${details.image}" alt="${details.title} Cover image"></section>

@@ -361,6 +361,7 @@ div.mobile-menu {
 
 /* MAIN */
 
+
 .centered {
     text-align: center;
 }
@@ -657,6 +658,7 @@ td input {
 
     .side-info {
         height:fit-content;
+        width: fit-content;
         padding: 15px;
     }
 
@@ -784,7 +786,7 @@ td input {
 
 .smallermain {
     width: 40%;
-    justify-items: center;
+    margin: auto;
 }
 
 .sendFormButton{

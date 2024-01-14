@@ -1,5 +1,6 @@
 const url = "https://api.noroff.dev/api/v1/gamehub";
 const gameContainer = document.querySelector(".gamecontainer");
+const navGenre = document.querySelector(".navGenre");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const genre = params.get("genre");
@@ -8,12 +9,16 @@ const header = document.querySelector(".bannerheading");
 
 if (genre === "Sports") {
     header.src ="/images/SportsBigBanner.jpg";
+    navGenre.innerHTML = "SPORTS";
 } else if (genre === "Action") {
     header.src ="/images/ActionBigBanner.jpg";
+    navGenre.innerHTML = "ACTION";
 } else if (genre === "Horror") {
     header.src ="/images/horrorbigbanner.jpg";
+    navGenre.innerHTML = "HORROR";
 } else if (genre === "Adventure") {
     header.src ="/images/adventurebigbanner.jpg";
+    navGenre.innerHTML = "ADVENTURE";
 }
 
 async function getGenreGames() {

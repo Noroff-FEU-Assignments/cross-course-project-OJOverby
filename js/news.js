@@ -1,4 +1,4 @@
-const url2 = "https://api.noroff.dev/api/v1/gamehub";
+const url2 = "https://olejorgen.no/gamehubapi/wp-json/wc/store/products?per_page=12";
 const newsContainer = document.querySelector(".news-container");
 let cart2 = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -10,14 +10,14 @@ async function getNewestGames() {
         const response = await fetch(url2);
         const games = await response.json();
         newsContainer.innerHTML = "";
-        const sortedGames = games.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)).slice(0, 3);
+        const sortedGames = games.sort((a, b) => new Date(b.attributes[0].terms[0].name) - new Date(a.attributes[0].terms[0].name)).slice(0, 3);
         console.log(sortedGames);
     
         sortedGames.forEach(function(game){
             newsContainer.innerHTML += `
             <section class="gamescard">
-            <a href="/details.html?id=${game.id}"><img src="${game.image}" alt="${game.title} game cover" class="cover-card">
-            <h2>${game.title}</h2>
+            <a href="/details.html?id=${game.id}"><img src="${game.images[0].src}" alt="${game.name} game cover" class="cover-card">
+            <h2>${game.name}</h2>
             </a>
             </section>
             `;

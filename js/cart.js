@@ -3,7 +3,7 @@ const emptyButton = document.querySelector(".empty-button");
 const checkoutButton = document.querySelector(".checkout-button");
 const loadingWrap = document.querySelector(".loading-wrapper");
 const price = document.querySelector(".price");
-const url = "https://api.noroff.dev/api/v1/gamehub/";
+const url = "https://olejorgen.no/gamehubapi/wp-json/wc/store/products/";
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let totalPrice = 0;
 
@@ -16,28 +16,31 @@ emptyButton.addEventListener("click", function() {
 
 async function getCartItem(gameId){
     try {
-        const url = "https://api.noroff.dev/api/v1/gamehub/"+gameId;
+        const url = "https://olejorgen.no/gamehubapi/wp-json/wc/store/products/"+gameId;
       const response = await fetch(url);
       const cartItem = await response.json();
 
-      cartQuantity = cart.find(item => item.id === cartItem.id);
+      cartQuantity = cart.find(item => item.id == cartItem.id);
+      console.log(gameId);
       cartContainer.innerHTML += `
         
       <tr>
-          <td><a href="/details.html?id=${cartItem.id}"><img src="${cartItem.image}" alt="${cartItem.image} game cover" class="cartCover"></a></td>
-          <td><b>${cartItem.title}</b><p>Digital CD key</p></td>
+          <td><a href="/details.html?id=${cartItem.id}"><img src="${cartItem.images[0].src}" alt="${cartItem.name} game cover" class="cartCover"></a></td>
+          <td><b>${cartItem.name}</b><p>Digital CD key</p></td>
           <td><div class="inline"><div class="minus-button" onclick="decreaseItems('${cartItem.id}')">-</div><div id="quantity-id-${cartItem.id}" class="quantity-number">${cartQuantity.quantity}</div><div class="plus-button" onclick="increaseItems('${cartItem.id}')">+</div></div></td>
-          <td><div id="item-price-${cartItem.id}" class="item-price">$${(cartItem.price*cartQuantity.quantity).toFixed(2)}</div></td>
+          <td><div id="item-price-${cartItem.id}" class="item-price">$${((cartItem.prices.regular_price)/100*cartQuantity.quantity).toFixed(2)}</div></td>
         </tr>
         
       `;
+      console.log(cartItem);
      
-      totalPrice += cartItem.price*cartQuantity.quantity;
+      totalPrice += (cartItem.prices.regular_price/100)*cartQuantity.quantity;
       price.innerHTML = `$`+ totalPrice.toFixed(2);
     
   
   } catch (error) {
     cartContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
+    console.log(error);
   }
     }
 

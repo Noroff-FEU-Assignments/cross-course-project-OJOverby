@@ -54,7 +54,7 @@ async function getInfo(id){
   try {
     const response = await fetch(url+id);
     const gameInfo = await response.json();
-    return gameInfo.price;
+    return gameInfo.prices.regular_price/100;
   }
   catch (error) {
     cartContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";

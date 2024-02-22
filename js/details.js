@@ -4,7 +4,7 @@ const currentGame = document.querySelector(".currentGame");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-const url = "https://api.noroff.dev/api/v1/gamehub/" + id;
+const url = "https://olejorgen.no/gamehubapi/wp-json/wc/store/products/" + id;
 let details;
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -13,25 +13,25 @@ async function fetchGame(){
     const response = await fetch(url);
     const details = await response.json();
 
-    gameGenre.innerHTML = details.genre.toUpperCase();
-    gameGenre.href = "/genre.html?genre="+details.genre;
-    currentGame.innerHTML = details.title.toUpperCase();
+    gameGenre.innerHTML = details.categories[0].name.toUpperCase();
+    gameGenre.href = "/genre.html?genre="+details.categories[0].name;
+    currentGame.innerHTML = details.name.toUpperCase();
 
     gameDetails.innerHTML = `
-    <section class="coverImg"><img src="${details.image}" alt="${details.title} Cover image"></section>
+    <section class="coverImg"><img src="${details.images[0].src}" alt="${details.name} Cover image"></section>
     <section class="gameInfo">
     
-    <h2>${details.title}</h2>
+    <h2>${details.name}</h2>
     <table>
-    <tr><th><h3>Age Rating:</h3></th><td><p>${details.ageRating}</p></td></tr>
-    <tr><th><h3>Genre:</h3></th><td><p>${details.genre}</p></td></tr>
-    <tr><th><h3>Release date:</h3></th><td><p>${details.released}</p></td></tr>
+    <tr><th><h3>Age Rating:</h3></th><td><p>${details.attributes[1].terms[0].name}</p></td></tr>
+    <tr><th><h3>Genre:</h3></th><td><p>${details.categories[0].name}</p></td></tr>
+    <tr><th><h3>Release date:</h3></th><td><p>${details.attributes[0].terms[0].name}</p></td></tr>
   </table>
     <h3>Description:</h3><p>${details.description}
     </p>
     </section>
   <section class="saleInfo">
-    <h2>${details.price}</h2>
+    <h2>$${(details.prices.regular_price / 100).toFixed(2)}</h2>
     <button class="CTA CTAinfo cartButton" data-id="${details.id}"><h3>ADD TO CART</h3></button>
   </section>`;
   const cartButton = document.querySelector(".cartButton")
@@ -41,6 +41,7 @@ async function fetchGame(){
   })
 } catch (error) {
   gameDetails.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
+  console.log(error);
 }
   }
   

@@ -1,4 +1,4 @@
-const url = "https://api.noroff.dev/api/v1/gamehub";
+const url = "https://olejorgen.no/gamehubapi/wp-json/wc/store/products?per_page=12";
 const gameContainer = document.querySelector(".gamecontainer");
 const navGenre = document.querySelector(".navGenre");
 const queryString = document.location.search;
@@ -27,14 +27,14 @@ async function getGenreGames() {
         const response = await fetch(url);
         const games = await response.json();
         gameContainer.innerHTML = "";
-        filteredGames = games.filter(game => game.genre === genre);
+        filteredGames = games.filter(game => game.categories[0].name === genre);
     
         filteredGames.forEach(function(game){
             gameContainer.innerHTML += `
             <section class="gamescard">
-            <a href="/details.html?id=${game.id}"><img src="${game.image}" alt="${game.title} game cover" class="cover-card"></a>
-            <h2>${game.title}</h2>
-            <h2>${game.price}</h2>
+            <a href="/details.html?id=${game.id}"><img src="${game.images[0].src}" alt="${game.name} game cover" class="cover-card"></a>
+            <h2>${game.name}</h2>
+            <h2>$${(game.prices.regular_price / 100).toFixed(2)}</h2>
             <button class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</button>
             <a href="/details.html?id=${game.id}"><button class="CTA readmorebutton-card">READ MORE</button></a>
             </section>

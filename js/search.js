@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const searchTerm = params.get('search');
 const searchQuery = document.querySelector(".search-query");
 searchQuery.innerHTML = searchTerm;
-const url = "https://api.noroff.dev/api/v1/gamehub";
+const url = "https://olejorgen.no/gamehubapi/wp-json/wc/store/products";
 const gameContainer = document.querySelector(".gamecontainer");
 const queryString = document.location.search;
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -17,15 +17,15 @@ async function getSearchedGames() {
         const response = await fetch(url);
         const games = await response.json();
         gameContainer.innerHTML = "";
-        filteredGames = games.filter(game => game.title.toLowerCase().includes(searchTerm.toLowerCase()));
+        filteredGames = games.filter(game => game.name.toLowerCase().includes(searchTerm.toLowerCase()));
         
         if(filteredGames.length > 0) {
         filteredGames.forEach(function(game){
             gameContainer.innerHTML += `
             <section class="gamescard">
-            <a href="/details.html?id=${game.id}"><img src="${game.image}" alt="${game.title} game cover" class="cover-card"></a>
-            <h2>${game.title}</h2>
-            <h2>${game.price}</h2>
+            <a href="/details.html?id=${game.id}"><img src="${game.images[0].src}" alt="${game.name} game cover" class="cover-card"></a>
+            <h2>${game.name}</h2>
+            <h2>${(game.prices.regular_price / 100).toFixed(2)}</h2>
             <div class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</div>
             <a href="/details.html?id=${game.id}"><div class="CTA readmorebutton-card">READ MORE</div></a>
             </section>

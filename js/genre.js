@@ -28,6 +28,7 @@ async function getGenreGames() {
         const games = await response.json();
         gameContainer.innerHTML = "";
         filteredGames = games.filter(game => game.categories[0].name === genre);
+        sortName(filteredGames);
     
         filteredGames.forEach(function(game){
             gameContainer.innerHTML += `
@@ -44,6 +45,20 @@ async function getGenreGames() {
         gameContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
     }
     
+}
+
+function showGames() {
+    filteredGames.forEach(function(game){
+        gameContainer.innerHTML += `
+        <section class="gamescard">
+        <a href="/details.html?id=${game.id}"><img src="${game.images[0].src}" alt="${game.name} game cover" class="cover-card"></a>
+        <h2>${game.name}</h2>
+        <h2>$${(game.prices.regular_price / 100).toFixed(2)}</h2>
+        <button class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</button>
+        <a href="/details.html?id=${game.id}"><button class="CTA readmorebutton-card">READ MORE</button></a>
+        </section>
+        `;
+    })
 }
 
 getGenreGames();

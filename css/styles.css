@@ -525,6 +525,14 @@ div.mobile-menu {
  grid-column: 1/2;
 }
 
+.sort-container {
+    text-align: right;
+}
+
+.sort-button {
+    margin-left: 5px;
+}
+
 .gamecontainer {
     display: grid;
     grid-template-columns: auto auto auto;

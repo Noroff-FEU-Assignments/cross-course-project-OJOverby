@@ -3,32 +3,36 @@ const gameContainer = document.querySelector(".gamecontainer");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
+
 async function getAllGames() {
 
     try {
         const response = await fetch(url);
-        const games = await response.json();
+        let games = await response.json();
         gameContainer.innerHTML = "";
-        console.log(games);
-    
-        games.forEach(function(game){
-            gameContainer.innerHTML += `
-            <section class="gamescard">
-            <a href="/details.html?id=${game.id}"><img src="${game.images[0].src}" alt="${game.title} game cover" class="cover-card"></a>
-            <h2>${game.name}</h2>
-            <h2>$${(game.prices.regular_price / 100).toFixed(2)}</h2>
-            <div class="button-container">
-            <button class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</button>
-            <a href="/details.html?id=${game.id}"><button class="CTA readmorebutton-card">READ MORE</button></a>
-            </div>
-            </section>
-            `;
-
-        })
+        sortName(games);
+        showGames(games);
+        return games;
     } catch (error) {
         gameContainer.innerHTML = "<h3>Ops, something is wrong. Try again or <a href='contact.html'>contact us<a/></h3>";
     }
-    
+}
+
+function showGames(games){
+    games.forEach(function(game){
+        gameContainer.innerHTML += `
+        <section class="gamescard">
+        <a href="/details.html?id=${game.id}"><img src="${game.images[0].src}" alt="${game.title} game cover" class="cover-card"></a>
+        <h2>${game.name}</h2>
+        <h2>$${(game.prices.regular_price / 100).toFixed(2)}</h2>
+        <div class="button-container">
+        <button class="addgamesbutton-card CTA" onclick="addToCart('${game.id}')">ADD TO CART</button>
+        <a href="/details.html?id=${game.id}"><button class="CTA readmorebutton-card">READ MORE</button></a>
+        </div>
+        </section>
+        `;
+
+    })
 }
 
 getAllGames();
